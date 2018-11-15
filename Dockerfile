@@ -21,7 +21,7 @@ ENV BAR1=aceRestDemo.bar
 
 # Install ACE V11 Developer Edition
 RUN apt update && apt -y install --no-install-recommends curl rsyslog sudo \
-  && curl http://192.168.1.19/~peterajessup/files/11.0.0.2-ACE-LINUX64-DEVELOPER.tar.gz \
+  && curl <PATH_TO_ACE_IMAGE>11.0.0.2-ACE-LINUX64-DEVELOPER.tar.gz \
    | tar xz --exclude ace-11.0.0.2/tools --directory /opt/ibm/ \
   && /opt/ibm/ace-11.0.0.2/ace make registry global accept license silently \
   && apt remove -y curl \
@@ -29,7 +29,7 @@ RUN apt update && apt -y install --no-install-recommends curl rsyslog sudo \
 
 # Install the MQ Client
 
-ARG MQ_URL=http://192.168.1.19/~peterajessup/files/mqadv_dev910_ubuntu_x86-64.tar.gz
+ARG MQ_URL=<PATH_TO_MQ_IMAGE>/mqadv_dev910_ubuntu_x86-64.tar.gz
 ARG MQ_PACKAGES="ibmmq-runtime ibmmq-client ibmmq-java ibmmq-jre"
 
 
